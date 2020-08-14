@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Upload RPP</title>
+    <title>Tambah Guru</title>
     <link
       href="https://fonts.googleapis.com/css?family=Raleway"
       rel="stylesheet"
@@ -18,7 +18,7 @@
         background: #fbfbfb;
         border-radius: 8px;
         box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
-        height: 500px;
+        height: 380px;
         margin: 6rem auto 8.1rem auto;
         width: 329px;
       }
@@ -88,7 +88,7 @@
   </head>
   <body>
         <div class="pull-right">
-          <a class="btn btn-primary" href="{{ route('laporans.index') }}">
+          <a class="btn btn-primary" href="{{ route('gurus.index') }}">
             Kembali</a
           >
         </div>
@@ -107,29 +107,20 @@
     <div id="card">
       <div id="card-content">
         <div id="card-title">
-          <h2>Tambah Laporan</h2>
+          <h2>Tambah Guru</h2>
           <div class="underline-title"></div>
         </div>
-        <form action="{{ route('laporans.store') }}" method="POST" class="form">
+        <form action="{{ route('gurus.store') }}" method="POST" class="form">
           @csrf
-          <select class="form-content" name="nama_guru" id="user-email">
-            @foreach($guru as $id => $nama_guru)
-              <option value="{{ $id }}">{{ $nama_guru }}</option>
-            @endforeach
-          </select>
-          <div class="form-border"></div>
-          <label for="tanggal" style="padding-top: 13px;">Tanggal</label>
+          <label for="user-email" style="padding-top: 13px;">Nama Guru</label>
           <input
-            id="user-email"
+            id="nama_guru"
             class="form-content"
-            type="datetime-local"
-            name="tanggal"
+            type="text"
+            name="nama_guru"
             autocomplete="on"
             required
           />
-          <div class="form-border"></div>
-          <label for="user-email" style="padding-top: 13px;">RPP</label>
-          <input type="file" class="form-control-file border" name="rpp" />
           <div class="form-border"></div>
           <button
             type="submit"

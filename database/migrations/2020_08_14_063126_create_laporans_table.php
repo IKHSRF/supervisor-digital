@@ -17,7 +17,7 @@ class CreateLaporansTable extends Migration
             $table->id();
             $table->string('id_guru');
             $table->String('rpp');
-            $table->string('tanggal');
+            $table->date('tanggal');
             $table->timestamps();
         });
     }

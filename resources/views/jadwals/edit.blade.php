@@ -117,7 +117,7 @@
           <input
             id="user-email"
             class="form-content"
-            type="text"
+            type="datetime-local"
             name="tanggal"
             autocomplete="on"
             value="{{ $jadwal->tanggal }}"
@@ -148,10 +148,10 @@
           <div class="form-border"></div>
           <label for="rombel" style="padding-top: 13px;">ID Mapel</label>
           <select class="form-content" name="id_mapel" id="user-email">
-                <option value="{{ $jadwal->id_mapel }}" disabled selected>{{ $jadwal->id_mapel }}</option>
-                <option value="1">MTK</option>
-                  <option value="2">INDO</option>
-                  <option value="3">INGGRIS</option>
+                <option value="{{ $jadwal->id_mapel }}" disabled selected>{{ $jadwal->nama_mapel }}</option>
+                @foreach($pelajaran as $id => $nama_mapel)
+              <option value="{{ $id }}">{{ $nama_mapel }}</option>
+            @endforeach
                </select>
           <div class="form-border"></div>
           <button

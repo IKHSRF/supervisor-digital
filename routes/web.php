@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::resource('laporans', 'LaporanController');
 Route::resource('mapels', 'MapelController');
 Route::resource('jadwals', 'JadwalController');
+Route::resource('gurus', 'GuruController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

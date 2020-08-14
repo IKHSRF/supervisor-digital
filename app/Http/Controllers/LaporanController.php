@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Guru;
 use App\Laporan;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,8 @@ class LaporanController extends Controller
      */
     public function create()
     {
-        return view('laporans.create');
+        $guru = Guru::pluck('nama_guru', 'id');
+        return view('laporans.create', compact('guru'));
     }
 
     /**
@@ -41,6 +43,7 @@ class LaporanController extends Controller
         $request->validate([
             'id_guru' => 'required',
             'rpp' => 'required',
+            'tanggal' => 'required',
         ]);
 
         Laporan::create($request->all());
@@ -57,7 +60,8 @@ class LaporanController extends Controller
      */
     public function show(Laporan $laporan)
     {
-        return view('laporans.show', compact('laporan'));
+        $guru = Guru::pluck('nama_guru', 'id');
+        return view('laporans.show', compact('laporan', 'guru'));
     }
 
     /**
@@ -83,6 +87,7 @@ class LaporanController extends Controller
         $request->validate([
             'id_guru' => 'required',
             'rpp' => 'required',
+            'tanggal' => 'required',
         ]);
 
         $laporan->update($request->all());

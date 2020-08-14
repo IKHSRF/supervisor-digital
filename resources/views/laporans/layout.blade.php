@@ -28,6 +28,9 @@
           <a class="nav-link" href="mapels">Mata Pelajaran</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="gurus">Guru</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="jadwals">Jadwal</a>
         </li>
         <li class="nav-item">
@@ -45,6 +48,9 @@
       </ul>
       @elseif (Auth::user()->id_level == 4)
       <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+          <a class="nav-link" href="gurus">Guru</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="laporans">Laporan</a>
         </li>
@@ -56,6 +62,9 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="mapels">Mata Pelajaran</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="gurus">Guru</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="jadwals">Jadwal</a>

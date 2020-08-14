@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Jadwal;
+use App\Mapel;
 use Illuminate\Http\Request;
 
 class JadwalController extends Controller
@@ -27,7 +28,8 @@ class JadwalController extends Controller
      */
     public function create()
     {
-        return view('jadwals.create');
+        $pelajaran = Mapel::pluck('nama_mapel', 'id');
+        return view('jadwals.create', compact('pelajaran'));
     }
 
     /**
@@ -70,7 +72,8 @@ class JadwalController extends Controller
      */
     public function edit(Jadwal $jadwal)
     {
-        return view('jadwals.edit', compact('jadwal'));
+        $pelajaran = Mapel::pluck('nama_mapel', 'id');
+        return view('jadwals.edit', compact('jadwal', 'pelajaran'));
     }
 
     /**

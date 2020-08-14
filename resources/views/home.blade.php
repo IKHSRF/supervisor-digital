@@ -13,13 +13,13 @@
   <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
       <a class="navbar-brand" href="halamanDepan.html">Supervisor Digital</a>
-    @if (Auth::user()->id_level == 1)
+      @if (Auth::user()->id_level == 1)
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="nav-link" href="laporans">Laporan</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" onclick="logout()">Log out</a>
+          <a class="nav-link" href="/">Log out</a>
         </li>
       </ul>
     @elseif (Auth::user()->id_level == 2)
@@ -28,10 +28,13 @@
           <a class="nav-link" href="mapels">Mata Pelajaran</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="gurus">Guru</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="jadwals">Jadwal</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" onclick="logout()">Log out</a>
+          <a class="nav-link" href="/">Log out</a>
         </li>
       </ul>
       @elseif (Auth::user()->id_level == 3)
@@ -40,16 +43,19 @@
           <a class="nav-link" href="laporans">Laporan</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" onclick="logout()">Log out</a>
+          <a class="nav-link" href="/">Log out</a>
         </li>
       </ul>
       @elseif (Auth::user()->id_level == 4)
       <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+          <a class="nav-link" href="gurus">Guru</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="laporans">Laporan</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" onclick="logout()">Log out</a>
+          <a class="nav-link" href="/">Log out</a>
         </li>
       </ul>
       @elseif (Auth::user()->id_level == 5)
@@ -58,13 +64,16 @@
           <a class="nav-link" href="mapels">Mata Pelajaran</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="gurus">Guru</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="jadwals">Jadwal</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="laporans">Laporan</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" onclick="logout()">Log out</a>
+          <a class="nav-link" href="/">Log out</a>
         </li>
       </ul>
       @endif

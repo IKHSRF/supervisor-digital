@@ -18,7 +18,7 @@
         background: #fbfbfb;
         border-radius: 8px;
         box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
-        height: 380px;
+        height: 500px;
         margin: 6rem auto 8.1rem auto;
         width: 329px;
       }
@@ -113,14 +113,21 @@
         <form action="{{ route('laporans.update',$laporan->id) }}" method="POST" class="form">
           @csrf
           @method('PUT')
-          <label for="user-email" style="padding-top: 13px;">ID Guru</label>
+          <select class="form-content" name="nama_guru" id="user-email">
+          <option value="{{ $laporan->id_guru }}" disabled selected>{{ $laporan->nama_guru }}</option>
+            @foreach($guru as $id => $nama_guru)
+              <option value="{{ $id }}">{{ $nama_guru }}</option>
+            @endforeach
+          </select>
+          <div class="form-border"></div>
+          <label for="tanggal" style="padding-top: 13px;">Tanggal</label>
           <input
-            id="id_guru"
+            id="user-email"
             class="form-content"
-            type="text"
-            name="id_guru"
+            type="datetime-local"
+            name="tanggal"
             autocomplete="on"
-            value="{{ $laporan->id_guru }}"
+            value="{{ $laporan->tanggal }}"
             required
           />
           <div class="form-border"></div>

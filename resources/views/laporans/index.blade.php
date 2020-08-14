@@ -12,13 +12,15 @@
 <table class="table table-bordered">
    <tr>
       <th>No</th>
-      <th>ID Guru</th>
+      <th>Tanggal<th>
+      <th>Nama Guru</th>
       <th>RPP</th>
       <th width="280px">Action</th>
    </tr>
    @foreach ($laporans as $laporan)
    <tr>
       <td>{{ ++$i }}</td>
+      <td>{{ $laporan->tanggal}}</td>
       <td>{{ $laporan->id_guru }}</td>
       <td>{{ $laporan->rpp }}</td>
       <td>

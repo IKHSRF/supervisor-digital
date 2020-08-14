@@ -116,7 +116,7 @@
           <input
             id="user-email"
             class="form-content"
-            type="text"
+            type="datetime-local"
             name="tanggal"
             autocomplete="on"
             required
@@ -144,10 +144,10 @@
           <div class="form-border"></div>
           <label for="rombel" style="padding-top: 13px;">ID Mapel</label>
           <select class="form-content" name="id_mapel" id="user-email">
-                  <option value="1">MTK</option>
-                  <option value="2">INDO</option>
-                  <option value="3">INGGRIS</option>
-               </select>
+            @foreach($pelajaran as $id => $nama_mapel)
+              <option value="{{ $id }}">{{ $nama_mapel }}</option>
+            @endforeach
+          </select>
           <div class="form-border"></div>
           <button
             type="submit"
