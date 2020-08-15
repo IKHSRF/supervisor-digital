@@ -87,6 +87,9 @@
     </style>
   </head>
   <body>
+  <div class="alert alert-info">
+  <strong>Info!</strong> File Yang Diupload Berupa .pdf
+</div>
         <div class="pull-right">
           <a class="btn btn-primary" href="{{ route('laporans.index') }}">
             Kembali</a
@@ -113,10 +116,10 @@
         <form action="{{ route('laporans.update',$laporan->id) }}" method="POST" class="form">
           @csrf
           @method('PUT')
-          <select class="form-content" name="nama_guru" id="user-email">
+          <select class="form-content" name="id_guru" id="user-email">
           <option value="{{ $laporan->id_guru }}" disabled selected>{{ $laporan->nama_guru }}</option>
             @foreach($guru as $id => $nama_guru)
-              <option value="{{ $id }}">{{ $nama_guru }}</option>
+              <option value="{{ $nama_guru }}">{{ $nama_guru }}</option>
             @endforeach
           </select>
           <div class="form-border"></div>

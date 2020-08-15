@@ -26,8 +26,10 @@ class LaporanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
+
         $guru = Guru::pluck('nama_guru', 'id');
         return view('laporans.create', compact('guru'));
     }
@@ -41,12 +43,29 @@ class LaporanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'id_guru' => 'required',
-            'rpp' => 'required',
+            'rpp' => 'required|mimes:pdf,xlx,csv|max:8192',
             'tanggal' => 'required',
+            'id_guru' => 'required',
+
         ]);
 
-        Laporan::create($request->all());
+        $fileModel = new Laporan;
+
+        if ($request->file()) {
+            $fileName = time() . '_' . $request->rpp->getClientOriginalName();
+            $filePath = $request->file('rpp')->storeAs('uploads', $fileName, 'public');
+
+            $fileModel->rpp = time() . '_' . $request->rpp->getClientOriginalName();
+            $fileModel->id_guru = $request->id_guru;
+            $fileModel->tanggal = $request->tanggal;
+            $request->rpp->move(public_path('uploads'), $fileName);
+            $fileModel->save();
+        }
+
+        // $fileName = time() . '.' . $request->rpp->extension();
+        // $request->rpp->move(public_path('uploads'), $fileName);
+
+        // Laporan::create($request->all());
 
         return redirect()->route('laporans.index')
             ->with('success', 'Laporan created successfully.');
@@ -60,8 +79,12 @@ class LaporanController extends Controller
      */
     public function show(Laporan $laporan)
     {
-        $guru = Guru::pluck('nama_guru', 'id');
-        return view('laporans.show', compact('laporan', 'guru'));
+        $myFile = public_path($laporan->rpp);
+        $headers = ['Content-Type: application/pdf'];
+        $newName = $laporan->rpp . time() . '.pdf';
+
+        return response()->download($myFile, $newName, $headers);
+        // return view('laporans.show', compact('laporan'));
     }
 
     /**
@@ -72,7 +95,8 @@ class LaporanController extends Controller
      */
     public function edit(Laporan $laporan)
     {
-        return view('laporans.edit', compact('laporan'));
+        $guru = Guru::pluck('nama_guru', 'id');
+        return view('laporans.edit', compact('laporan', 'guru'));
     }
 
     /**

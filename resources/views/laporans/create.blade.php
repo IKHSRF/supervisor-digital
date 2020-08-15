@@ -87,6 +87,9 @@
     </style>
   </head>
   <body>
+  <div class="alert alert-info">
+  <strong>Info!</strong> File Yang Diupload Berupa .pdf
+</div>
         <div class="pull-right">
           <a class="btn btn-primary" href="{{ route('laporans.index') }}">
             Kembali</a
@@ -110,11 +113,11 @@
           <h2>Tambah Laporan</h2>
           <div class="underline-title"></div>
         </div>
-        <form action="{{ route('laporans.store') }}" method="POST" class="form">
+        <form action="{{ route('laporans.store') }}" method="POST" class="form" enctype="multipart/form-data">
           @csrf
-          <select class="form-content" name="nama_guru" id="user-email">
+          <select class="form-content" name="id_guru" id="user-email">
             @foreach($guru as $id => $nama_guru)
-              <option value="{{ $id }}">{{ $nama_guru }}</option>
+              <option value="{{ $nama_guru }}">{{ $nama_guru }}</option>
             @endforeach
           </select>
           <div class="form-border"></div>

@@ -21,11 +21,12 @@
    <tr>
       <td>{{ ++$i }}</td>
       <td>{{ $laporan->tanggal}}</td>
+      <td></td>
       <td>{{ $laporan->id_guru }}</td>
-      <td>{{ $laporan->rpp }}</td>
+      <td>{{ $laporan->rpp}}</td>
       <td>
          <form action="{{ route('laporans.destroy',$laporan->id) }}" method="POST">
-            <a class="btn btn-info" href="{{ route('laporans.show',$laporan->id) }}">Show</a>
+            <a class="btn btn-info" href="{{ route('laporans.show',$laporan->id) }}">Download</a>
             <a class="btn btn-primary" href="{{ route('laporans.edit',$laporan->id) }}">Edit</a>
             @csrf
             @method('DELETE')
