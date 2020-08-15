@@ -79,7 +79,7 @@ class LaporanController extends Controller
      */
     public function show(Laporan $laporan)
     {
-        $myFile = public_path($laporan->rpp);
+        $myFile = public_path('uploads/' . $laporan->rpp);
         $headers = ['Content-Type: application/pdf'];
         $newName = $laporan->rpp . time() . '.pdf';
 

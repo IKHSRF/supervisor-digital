@@ -87,10 +87,6 @@
         <strong>Info!</strong> Tampilan role lain berbeda beda sesuai dengan
         fungsinya masing masing.
       </div>
-      <div class="alert alert-warning">
-        <strong>Warning!</strong> Akan Diupdate setelah menggunakan database dan
-        bahasa pemrograman
-      </div>
       <div style="z-index: -1; position: fixed;"></div>
 
       <div id="card" hidden>
